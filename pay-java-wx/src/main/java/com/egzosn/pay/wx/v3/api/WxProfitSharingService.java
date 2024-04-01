@@ -120,17 +120,7 @@ public class WxProfitSharingService extends WxPayService implements ProfitSharin
         return getAssistService().doExecute(parameters, order);
     }
 
-    /**
-     * http 实体 钩子
-     *
-     * @param entity 实体
-     * @return 返回处理后的实体
-     */
-    @Override
-    public HttpStringEntity hookHttpEntity(HttpStringEntity entity) {
-        entity.addHeader(new BasicHeader(WxConst.WECHATPAY_SERIAL, payConfigStorage.getCertEnvironment().getPlatformSerialNumber()));
-        return entity;
-    }
+
 
     /**
      * 返回创建的订单信息

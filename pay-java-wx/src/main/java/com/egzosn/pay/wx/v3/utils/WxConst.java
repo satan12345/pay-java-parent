@@ -39,7 +39,7 @@ public final class WxConst {
     public static final String TYPE = "type";
     public static final String ACCOUNT = "account";
     public static final String NAME = "name";
-    public static final String RELATION_TYPE = "relationType";
+    public static final String RELATION_TYPE = "relation_type";
     public static final String CUSTOM_RELATION = "customRelation";
     public static final String DESCRIPTION = "description";
     public static final String BILL_DATE = "bill_date";

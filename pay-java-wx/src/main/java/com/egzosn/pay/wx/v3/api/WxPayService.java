@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.message.BasicHeader;
 
 import static com.egzosn.pay.wx.api.WxConst.OUT_TRADE_NO;
 import static com.egzosn.pay.wx.api.WxConst.SANDBOXNEW;
@@ -41,6 +42,7 @@ import com.egzosn.pay.common.bean.TransferOrder;
 import com.egzosn.pay.common.bean.result.PayException;
 import com.egzosn.pay.common.exception.PayErrorException;
 import com.egzosn.pay.common.http.HttpConfigStorage;
+import com.egzosn.pay.common.http.HttpStringEntity;
 import com.egzosn.pay.common.http.ResponseEntity;
 import com.egzosn.pay.common.http.UriVariables;
 import com.egzosn.pay.common.util.DateUtils;
@@ -332,6 +334,18 @@ public class WxPayService extends BasePayService<WxPayConfigStorage> implements 
     public String createSign(String content, String characterEncoding) {
         PrivateKey privateKey = payConfigStorage.getCertEnvironment().getPrivateKey();
         return RSA2.sign(content, privateKey, characterEncoding);
+    }
+
+    /**
+     * http 实体 钩子
+     *
+     * @param entity 实体
+     * @return 返回处理后的实体
+     */
+    @Override
+    public HttpStringEntity hookHttpEntity(HttpStringEntity entity) {
+        entity.addHeader(new BasicHeader(WxConst.WECHATPAY_SERIAL, payConfigStorage.getCertEnvironment().getPlatformSerialNumber()));
+        return entity;
     }
 
     /**
