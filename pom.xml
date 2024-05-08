@@ -59,7 +59,7 @@
         <module>pay-java-paypal</module>
         <module>pay-java-yiji</module>
         <module>pay-java-baidu</module>
-        <module>pay-java-demo</module>
+<!--        <module>pay-java-demo</module>-->
     </modules>
 
 
@@ -121,11 +121,17 @@
                 <version>${zxing.version}</version>
             </dependency>
 
+<!--            <dependency>-->
+<!--                <groupId>javax.servlet</groupId>-->
+<!--                <artifactId>javax.servlet-api</artifactId>-->
+<!--                <scope>provided</scope>-->
+<!--                <version>${servlet-api.version}</version>-->
+<!--            </dependency>-->
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>6.0.0</version>
                 <scope>provided</scope>
-                <version>${servlet-api.version}</version>
             </dependency>
 
         </dependencies>
@@ -147,8 +153,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>

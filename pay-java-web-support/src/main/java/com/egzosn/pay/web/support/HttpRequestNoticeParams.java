@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.egzosn.pay.common.bean.NoticeRequest;
 
